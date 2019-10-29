@@ -10,10 +10,27 @@
 <html>
 <head>
     <title>Travel Form</title>
+    <style>
+        .error{
+            color: red;
+            font-size: xx-small;
+        }
+
+    </style>
 </head>
 <body>
 
+
+
     <form:form action="processForm" modelAttribute="bill">
+
+        First Name* <form:input path="firstName"/>
+        <form:errors path="firstName" cssClass="error"/>
+        <br/>
+        Last Name* <form:input path="lastName"/>
+        <form:errors path="lastName" cssClass="error"/>
+        <br/>
+
         Home Country
         <form:select path="homeCountry">
             <form:option label="France" value="FR" />
@@ -30,7 +47,32 @@
                 <form:options items="${gradeLevelsAttr}" />
             </form:select>
         </form:select>
+
+        Spoken Languages:
+        <form:checkbox path="spokenLanguages" value="English"/> English
+        <br/>
+        <form:checkbox path="spokenLanguages" value="Spanish"/> Spanish.
+        <br/>
+        <form:checkbox path="spokenLanguages" value="Japanese"/> Japanese
+        <br/>
+
         <input type="submit">
+
+        <br/><br/>
+
+        <label><form:radiobutton path="semester" value="Spring" checked="true"/>Spring</label>
+        <br/><br/>
+        <label><form:radiobutton path="semester" value="Summer"/>Summer</label>
+        <br/><br/>
+        <label><form:radiobutton path="semester" value="Fall"/>Fall</label>
+        <br/><br/>
+
+        <form:radiobuttons path="travelMethod" items="${travelsBy}"/>
+        Semester: ${bill.semester}
+        Travel Method: ${bill.travelMethod}
+
+
+
     </form:form>
 
 

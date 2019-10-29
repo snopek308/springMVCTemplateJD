@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: abby-
@@ -16,6 +17,19 @@ Home Country: ${bill.homeCountry}
 Host Country: ${bill.hostCountry}
 <br/>
 Grade Level: ${bill.gradeLevel}
+<br/>
+Semester: ${bill.semester}
+<br/>
+Languages Spoken:
+<ul>
+    <c:forEach items="${bill.spokenLanguages}" var="aLanguage">
+        <li>${aLanguage}</li>
+
+
+    </c:forEach>
+
+</ul>
+
 
 </body>
 </html>
